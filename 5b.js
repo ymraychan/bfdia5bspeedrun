@@ -2178,7 +2178,7 @@ let levelButtonClicked = -1;
 let showingNewGame2 = false;
 let showingExploreNewGame2 = false;
 
-let musicSound = new Audio('data/the fiber 16x loop.wav');
+let musicSound = new Audio('data/the fiber 16x loop.mp3');
 // musicSound.addEventListener('canplaythrough', event => {incrementCounter();});
 
 const scaleFactor = 3;
