@@ -10364,6 +10364,46 @@ let lastFrameReq = then;
 let interval = 1000 / fps;
 let delta;
 
+let fpshidden = JSON.parse(localStorage.getItem('flag'))||false;
+
+if (fpshidden) {
+	document.getElementById('fps').classList.add('none')
+	document.getElementById('fpsInput').classList.add('none')
+	document.getElementById('updatefps').classList.add('none')
+}
+else {
+	document.getElementById('fps').classList.remove('none')
+	document.getElementById('fpsInput').classList.remove('none')
+	document.getElementById('updatefps').classList.remove('none')
+}
+
+document.addEventListener('keydown', (event) => {
+	if (event.key === 'h') {
+		fpshidden = !(fpshidden)
+		localStorage.setItem('flag', JSON.stringify(fpshidden))
+		if (fpshidden) {
+			document.getElementById('fps').classList.add('none')
+			document.getElementById('fpsInput').classList.add('none')
+			document.getElementById('updatefps').classList.add('none')
+		}
+		else {
+			document.getElementById('fps').classList.remove('none')
+			document.getElementById('fpsInput').classList.remove('none')
+			document.getElementById('updatefps').classList.remove('none')
+		}
+	}
+})
+function updateFPS() {
+    // 1. Get the value from the input field
+    const inputVal = document.getElementById("fpsInput").value;
+    
+    // 2. Convert string to a number and update game variables
+    fps = parseInt(inputVal);
+    interval = 1000 / fps;
+    
+    console.log(`FPS updated to: ${fps}`);
+}
+
 function rAF60fps() {
 	requestAnimationFrame(rAF60fps);
 	if (frameRateThrottling) {
