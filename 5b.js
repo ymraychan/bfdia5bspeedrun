@@ -57,7 +57,7 @@ let textAfterCursorAtClick = '';
 // let controlOrCommandPress = false;
 
 let levelsString = '';
-let levelCount = 53;
+let levelCount = 100;
 let f = 19;
 let levels = new Array(levelCount);
 let startLocations = new Array(levelCount);
@@ -10370,6 +10370,9 @@ if (fpshidden) {
 	document.getElementById('fps').classList.add('none')
 	document.getElementById('fpsInput').classList.add('none')
 	document.getElementById('updatefps').classList.add('none')
+	fps = 60;
+    interval = 1000 / fps; 
+    document.getElementById('fpsInput').value = 60;
 }
 else {
 	document.getElementById('fps').classList.remove('none')
@@ -10385,6 +10388,9 @@ document.addEventListener('keydown', (event) => {
 			document.getElementById('fps').classList.add('none')
 			document.getElementById('fpsInput').classList.add('none')
 			document.getElementById('updatefps').classList.add('none')
+			fps = 60;
+			interval = 1000 / fps; 
+			document.getElementById('fpsInput').value = 60;
 		}
 		else {
 			document.getElementById('fps').classList.remove('none')
